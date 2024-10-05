@@ -1,3 +1,4 @@
+import { ToolBar } from './components/toolbar'
 import { Styled } from './styles'
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <Styled.SliderContainer>
 
       </Styled.SliderContainer>
+      <ToolBar />
     </Styled.Container>
   )
 }
