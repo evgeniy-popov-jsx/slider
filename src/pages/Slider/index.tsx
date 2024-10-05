@@ -5,7 +5,7 @@ import { sliderStore } from '../../application/stores/sliderStore';
 import React from 'react';
 
 export const Slider = observer(() => {
-  const { currentSlide, prevSlide, nextSlide } = sliderStore;
+  const { currentSlide, prevSlide, nextSlide, startAutoPlay, stopAutoPlay } = sliderStore;
 
   return (
     <>
@@ -19,6 +19,8 @@ export const Slider = observer(() => {
       <ToolBar 
         prevSlide={prevSlide}
         nextSlide={nextSlide}
+        startAutoplay={startAutoPlay}
+        stopAutoplay={stopAutoPlay}
       />
     </>
   );
