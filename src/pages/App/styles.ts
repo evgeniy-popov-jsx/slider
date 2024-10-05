@@ -16,9 +16,30 @@ const SliderContainer = styled.div`
   margin: 10px;
   border: 1px solid #e1e1e1;
   border-radius: 4px;
+  overflow: hidden;
 `;
+const SlidesWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+`;
+
+const Slide = styled.div<{ $bgColor: string }>`
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+  background: ${(props) => props.$bgColor};
+`
 
 export const Styled = {
   Container,
-  SliderContainer
+  SliderContainer,
+  SlidesWrapper,
+  Slide
 };
