@@ -1,7 +1,13 @@
+import { Styled } from './styles'
+
 function App() {
 
   return (
-    null
+    <Styled.Container>
+      <Styled.SliderContainer>
+
+      </Styled.SliderContainer>
+    </Styled.Container>
   )
 }
 
