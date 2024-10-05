@@ -4,15 +4,14 @@ const SliderContainer = styled.div`
   width: 700px;
   height: 450px;
   margin: 10px;
-  border: 1px solid #e1e1e1;
-  border-radius: 4px;
+  border-radius: 8px;
   overflow: hidden;
 `;
-const SlidesWrapper = styled.div<{ $currentSlide: number }>`
+const SlidesWrapper = styled.div<{ $currentSlide: number, $isAnimating: boolean }>`
   display: flex;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s ease-in-out;
+  transition: ${(props) => (props.$isAnimating ? 'transform 0.5s ease-in-out' : 'none')};
   transform: translateX(${(props) => -props.$currentSlide * 100}%);
 `;
 
@@ -21,6 +20,7 @@ const Slide = styled.div<{ $bgColor: string }>`
   height: 100%;
   display: flex;
   align-items: center;
+  font-family: Arial;
   justify-content: center;
   font-size: 24px;
   color: white;

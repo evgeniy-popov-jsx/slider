@@ -5,14 +5,17 @@ interface ToolBarProps {
   nextSlide: () => void;
   startAutoplay: () => void;
   stopAutoplay: () => void;
+  isPlaying: boolean;
 }
 
-export const ToolBar: React.FC<ToolBarProps> = ({ prevSlide, nextSlide, startAutoplay, stopAutoplay }) => {
+export const ToolBar: React.FC<ToolBarProps> = ({ prevSlide, nextSlide, startAutoplay, stopAutoplay, isPlaying }) => {
  return (
   <Styled.Container>
     <Styled.Button onClick={prevSlide} >{'<'}</Styled.Button>
-    <Styled.Button onClick={startAutoplay} >play</Styled.Button>
-    <Styled.Button onClick={stopAutoplay} >stop</Styled.Button>
+    {isPlaying 
+      ? <Styled.Button onClick={stopAutoplay} >пауза</Styled.Button>
+      : <Styled.Button onClick={startAutoplay} >старт</Styled.Button>
+    }
     <Styled.Button onClick={nextSlide} >{'>'}</Styled.Button>
   </Styled.Container>
  );

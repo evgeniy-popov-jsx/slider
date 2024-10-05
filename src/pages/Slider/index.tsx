@@ -1,16 +1,27 @@
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { ToolBar } from './components/toolbar';
-import { Styled } from './styles';
 import { sliderStore } from '../../application/stores/sliderStore';
-import React from 'react';
+import { Styled } from './styles';
 
 export const Slider = observer(() => {
-  const { currentSlide, prevSlide, nextSlide, startAutoPlay, stopAutoPlay } = sliderStore;
+  const {
+    currentSlide,
+    prevSlide,
+    nextSlide,
+    startAutoPlay,
+    stopAutoPlay,
+    isPlaying,
+    isAnimating
+  } = sliderStore;
 
   return (
     <>
       <Styled.SliderContainer>
-        <Styled.SlidesWrapper $currentSlide={currentSlide}>
+        <Styled.SlidesWrapper 
+          $currentSlide={currentSlide}
+          $isAnimating={isAnimating}
+        >
           {sliderStore.slides.map((slide, index) => (
             <React.Fragment key={index}>{slide}</React.Fragment>
           ))}
@@ -21,6 +32,7 @@ export const Slider = observer(() => {
         nextSlide={nextSlide}
         startAutoplay={startAutoPlay}
         stopAutoplay={stopAutoPlay}
+        isPlaying={isPlaying}
       />
     </>
   );
